@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Checkout</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{product.name}} - ${{product.price}}</li>
+        {%endfor%}
+    </ul>
+    <form method="post" action="{% url 'checkout'%}">
+        <!-- Add checkout form fields here-->
+        {% csrf_token%}
+        <input type="submit" value="place order">
+    </form>
+{%endfor%}
